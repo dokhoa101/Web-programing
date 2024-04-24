@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                    <img src="img/TDT_logo.png" alt="tdt logo">            
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class=" row collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <form class="form-inline  input-group">
+                            <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                          </form>
+                    </ul>
+                </div>
+
+                
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                
+                <div class=" collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a class="nav-link btn btn-primary " data-bs-toggle="modal" data-bs-target="#addSubjectModal" >Add subject</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+                
+            </div>
+        </nav>
+        
+    </header>
+
+     <!-- The Modal -->
+    <div class="modal fade" id="addSubjectModal">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">Add New Subject</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                <label for="subjectName" class="form-label">Subject Name:</label>
+                <input type="text" class="form-control" id="subjectName">
+                </div>
+                <div class="mb-3">
+                <label for="subjectDescription" class="form-label">Subject Description:</label>
+                <textarea class="form-control" id="subjectDescription"></textarea>
+                </div>
+                <div class="mb-3">
+                <label for="subjectDocument" class="form-label">Subject Document:</label>
+                <input type="file" class="form-control" id="subjectDocument">
+                </div>
+            </form>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="saveSubject()">Save</button>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+    
+
+    <main id="mainContent">
+        <div class="row">
+            
+            <div class="col-md-3 col-sd-3" id="sub_menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 col-sd-9">
+                <section id="print-resources">
+                    <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Cấu trúc rời rạc
+                      </a>
+                    <p>Print materials comprise vast collections of print books, theses and dissertations, journals, periodicals, maps, etc. which are situated all over the building for learning, teaching, researching and entertainment purposes.</p>
+                </section>
+        
+                <!-- Digital resources section -->
+                <section id="digital-resources">
+                    <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Lập trình và ứng dụng web
+                      </a>
+                    <p>This type of collection comprises TDTU-owned intellectual properties in formats of textbooks, theses and dissertations, conference proceedings, research outcomes, etc.</p>
+                </section>
+        
+                <!-- Online E-resources section -->
+                <section id="online-resources">
+                    <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Lập trình mạng căn bản
+                      </a>
+                    <p>Electronic materials comprise both purchase-to-access resources and free access resources.</p>
+                </section>
+        
+                <!-- Audio-Visual Resources section -->
+                <section id="audio-visual-resources">
+                    <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Giao thức mạng và mạng máy tính
+                      </a>
+                    <p>INSPIRE Library offers a full range of audio-visual materials which include print, CDs/DVDs and other multimedia forms.</p>
+                </section>
+        
+                <!-- Course materials section -->
+                <section id="course-materials">
+                    <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Xác suất thống kê
+                      </a>
+                    <p>Course Materials are a collection which is built through syllabus, lecturer's requests for every particular course. Course material print collection is located on the 4th Floor, which is categorized with a special searching system.</p>
+                </section>
+        
+                <!-- TDTU Research Outcomes section -->
+                <section id="tdtu-research-outcomes">
+                    <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Cấu trúc dữ liệu và giải thuật
+                      </a>
+                    <p>TDTU Research Outcomes are a collection of outcome data including a wide range of information on publications, staff career development, public engagement, conferences/workshops/symposia, intellectual property, new models/prototypes/tools, and so on.</p>
+                </section>
+            </div>
+
+            
+        </div>
+        <div class="container ">
+            <nav>
+                <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-3">Quick Link</h4>
+                        <a class="btn btn-link" href="">About Us</a>
+                        <a class="btn btn-link" href="">Contact Us</a>
+                        <a class="btn btn-link" href="">Privacy Policy</a>
+                        <a class="btn btn-link" href="">Terms & Condition</a>
+                        <a class="btn btn-link" href="">FAQs & Help</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-3">Contact</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-3">Gallery</h4>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4">
+                                <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-3">Newsletter</h4>
+                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+    
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br><br>
+                            Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        
+        
+    </main>
+
+
+    <script>
+        function saveSubject() {
+            var subjectName = document.getElementById("subjectName").value;
+            var subjectDescription = document.getElementById("subjectDescription").value;
+            var subjectDocument = document.getElementById("subjectDocument").value;
+            
+            var mainContent = document.getElementById("mainContent");
+            var section = document.createElement("section");
+            section.innerHTML = "<a>" + subjectName + "</a><p>" + subjectDescription + ".</p><h6>"+ subjectDocument +"</h6>";
+            mainContent.appendChild(section);
+ 
+          
+          $('#addSubjectModal').modal('hide');
+        }
+      </script>
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

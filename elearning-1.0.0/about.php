@@ -25,7 +25,7 @@ session_start();
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -35,6 +35,10 @@ session_start();
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
@@ -55,53 +59,24 @@ session_start();
 
 
 
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
-        <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid d-block w-100" src="img/it-1.jpg" alt="" style=" width: 100%; height: 100%;">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                    style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Ton Duc Thang
-                                    University</h5>
-                                <h1 class="display-3 text-white animated slideInDown">Faculty of Information Technology
-                                </h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed
-                                    stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus
-                                    eirmod elitr.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid d-block w-100" src="img/it-2.jpg" alt="" style=" width: 100%; height: 100%;">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                    style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Ton Duc Thang
-                                    University
-                                </h5>
-                                <h1 class="display-3 text-white animated slideInDown">Faculty of Information Technology
-                                </h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed
-                                    stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus
-                                    eirmod elitr.</p>
-
-                            </div>
-                        </div>
-                    </div>
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 ">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">About Us</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Carousel End -->
+    <!-- Header End -->
 
 
     <!-- Service Start -->
@@ -152,28 +127,17 @@ session_start();
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/it-3.jpg" alt=""
+                        <img class="img-fluid position-absolute w-100 h-100" src="img/about.jpg" alt=""
                             style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">FACULTY OF INFORMATION TECHNOLOGY</h1>
-                    <p class="mb-4">The Faculty of Information Technology (IT) has The Faculty of Mathematics and
-                        Informatics as its predecessor, which was born in 1997 - at the same time of the establishment
-                        of Ton Duc Thang University. On March 2, 2012, the Faculty was separated and renamed as Faculty
-                        of IT to take on the role in training human resources specialized in the field of Computer
-                        Science to meet the demands of the sustainable social developments. After their graduation,
-                        students of Faculty of IT are not only equipped with good programming skills but also equipped
-                        with knowledge of system analysis, design, network management, web design, management and
-                        development of information systems for agencies, organizations, and enterprises.</p>
-                    <p class="mb-4">Faculty of IT has been one of the prestigious ones of teaching and scientific
-                        research at Ton Duc Thang University. Faculty of IT has many training programs cooperated with
-                        large companies such as IBM, LogiGear, FSOFT. The students, therefore, have the advantage in
-                        practical skills. The quality of the training is confirmed by the fact that more than 90% of
-                        students have jobs in professional areas after their graduation. Many faculty alumni have now
-                        accomplished professionals who hold important positions, such as project managers or technical
-                        managers, in software development companies and other companies that use information systems.
+                    <h1 class="mb-4">Welcome to TDTU</h1>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et
+                        eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et
+                        eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
                     </p>
 
                     <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
@@ -182,9 +146,6 @@ session_start();
         </div>
     </div>
     <!-- About End -->
-
-
-
 
 
     <!-- Team Start -->
@@ -288,13 +249,9 @@ session_start();
     <!-- Team End -->
 
 
-
-
     <?php
     include 'footer.php';
     ?>
-
-
 
 
     <!-- Back to Top -->

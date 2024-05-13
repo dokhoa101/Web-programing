@@ -14,6 +14,8 @@ require_once("config/db.class.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources</title>
+    <link href="css/style.css" rel="stylesheet">
+
     <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -67,6 +69,8 @@ require_once("config/db.class.php");
     <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
     <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/LANG.js"></script>
 
+    <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -75,36 +79,9 @@ require_once("config/db.class.php");
     <header>
 
         <!-- Navigation bar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-                    <img src="img/TDT_logo.png" alt="tdt logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class=" row collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <form class="form-inline  input-group" method="get">
-                            <input class="form-control mr-sm-2 " name="search_content" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Search</button>
-                        </form>
-                    </ul>
-                    <ul class="navbar-nav mt-3 justify-content-end">
-                        <?php
-                        if (isset($_SESSION['email'])) {
-                        ?>
-                            <li class="nav-item ">
-                                <a class="nav-link btn  btn-outline-secondary " data-bs-toggle="modal" data-bs-target="#addlectureModal">Add lecture</a>
-                            </li>
-
-                        <?php
-                        }
-                        ?>
-                    </ul>
-                </div>
-
-        </nav>
+        <?php
+        include 'header_menu.php';
+        ?>
 
 
     </header>
@@ -165,72 +142,119 @@ require_once("config/db.class.php");
 
 
     <main id="mainContent">
-        <div class="row">
+        <div class="container-fluid">
+            <div class=" row">
 
-            <div class="col-md-3 col-sd-3" id="sub_menu">
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <li><a href="add_lecture.php">Courses</a></li>
-                    <li><a href="contact.php">Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-md-9 col-sd-9">
+                <div class="col-md-2 col-sd-2 sidebar " id="sub_menu">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-regular fa-square-plus"></i>
+                                Tài liệu
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <?php
+                                if (isset($_SESSION['email'])) {
+                                ?>
+                                    <li class="nav-item ">
+                                        <a href="#" class="dropdown-item " data-bs-toggle="modal" data-bs-target="#addlectureModal">Thêm tài liệu</a>
+                                    </li>
 
+                                <?php
+                                }
+                                ?>
+                                <li><a class="dropdown-item" href="admin.php">Tất cả tài liệu</a></li>
 
-                <?php
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tintuc_themSuaXoa.php">
+                                <i class="fa-regular fa-square-plus"></i> Tin tức
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="thongbaosinhvien_Themsuaxoa.php">
+                                <i class="fa-regular fa-square-plus"></i> Thông báo
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vieclam_Themsuaxoa.php">
+                                <i class="fa-regular fa-square-plus"></i> Tuyển dụng
+                            </a>
+                        </li>
 
-                $item_per_page = !empty($_GET['per_page']) ? ($_GET['per_page']) : 4;
-                $current_page = !empty($_GET['page']) ? ($_GET['page']) : 1;
-                $offset = ($current_page - 1) * $item_per_page;
-                $db = new DB;
-
-
-
-                if (!empty($_GET['search_content'])) {
-                    $search_query = ($_GET['search_content']);
-                    $docs = $db->select_to_array("SELECT * FROM monhoc WHERE TenMonHoc LIKE '%$search_query%' ORDER BY IDMonHoc ASC LIMIT {$item_per_page} OFFSET {$offset}");
-                    $totalRecords = $db->query_execute("SELECT * FROM monhoc WHERE TenMonHoc LIKE '%$search_query%'");
-                } else {
-                    $docs = $db->select_to_array("SELECT * FROM monhoc ORDER BY IDMonHoc ASC LIMIT {$item_per_page} OFFSET {$offset}");
-                    $totalRecords = $db->query_execute("SELECT * FROM monhoc");
-                }
-
-
-                $totalRecords = $totalRecords->num_rows;
-                $totalPages = ceil($totalRecords / $item_per_page);
-
-
-                foreach ($docs as $doc) {
-                    $IDMonHoc = $doc['IDMonHoc'];
-                    echo "<section class ='my-2'>
-                    <div class='row'>
-                    <div class='card col-md-9 col-sm-9' '>
-                    <div class='card-body'>
-                    <h5 class='card-title'><i class='fa-solid fa-book'></i>
-                    <a href='resources_detail.php?IDMonHoc=$IDMonHoc'  >
-                    {$doc['TenMonHoc']}</a></h5>
-                    <p>Ma mon hoc: {$IDMonHoc}</p>
-                    </div>
-                    </div>
-                    </div>
-                    </section>";
-                }
-                ?>
-
-                <?php
-                require_once("pagination.php");
-
-                ?>
+                    </ul>
 
 
 
 
 
-            </div>
+
+                </div>
+                <div class="col-md-7 col-sd-7">
+                    <form class="form-inline py-3 input-group" method="get">
+                        <input class="form-control mr-sm-2 " name="search_content" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" name="search" type="submit">Search</button>
+                    </form>
+
+                    <?php
+
+                    $item_per_page = !empty($_GET['per_page']) ? ($_GET['per_page']) : 6;
+                    $current_page = !empty($_GET['page']) ? ($_GET['page']) : 1;
+                    $offset = ($current_page - 1) * $item_per_page;
+                    $db = new DB;
 
 
+
+                    if (!empty($_GET['search_content'])) {
+                        $search_query = ($_GET['search_content']);
+                        $docs = $db->select_to_array("SELECT * FROM monhoc WHERE TenMonHoc LIKE '%$search_query%' ORDER BY IDMonHoc ASC LIMIT {$item_per_page} OFFSET {$offset}");
+                        $totalRecords = $db->query_execute("SELECT * FROM monhoc WHERE TenMonHoc LIKE '%$search_query%'");
+                    } else {
+                        $docs = $db->select_to_array("SELECT * FROM monhoc ORDER BY IDMonHoc ASC LIMIT {$item_per_page} OFFSET {$offset}");
+                        $totalRecords = $db->query_execute("SELECT * FROM monhoc");
+                    }
+
+
+                    $totalRecords = $totalRecords->num_rows;
+                    $totalPages = ceil($totalRecords / $item_per_page);
+
+
+                    foreach ($docs as $doc) {
+                        $IDMonHoc = $doc['IDMonHoc'];
+                        echo "<section class ='my-2'>
+        <div class='row mx-auto'>
+        <div class='card col-md-9 col-sm-9 mx-auto  '>
+        <div class='card-body'>
+        <h5 class='card-title'><i class='fa-solid fa-book'></i>
+        <a class='no-underline' href='resources_detail.php?IDMonHoc=$IDMonHoc'  >
+        {$doc['TenMonHoc']}</a></h5>
+        <p>Ma mon hoc: {$IDMonHoc}</p>
         </div>
+        </div>
+        </div>
+        </section>";
+                    }
+                    ?>
+
+                    <?php
+                    require_once("pagination.php");
+
+                    ?>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
 
 
         <?php
@@ -264,6 +288,8 @@ require_once("config/db.class.php");
     <!-- Include Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

@@ -12,18 +12,22 @@
             $current_page = empty($current_page)?1:$current_page;
 
             for ($num = 1; $num <= $totalPages; $num++) {
-                if ($num != $current_page) { ?>
+                if ($num != $current_page) { 
+                    if(isset($IDMonHoc)){?>
                     <li class="page-item"><a class="page-link" href="?IDMonHoc=<?= $IDMonHoc ?>&?per_page=<?= $item_per_page ?>&page=<?= $num ?>"><?= $num ?></a></li>
                 <?php
+                    } else{ ?>
+                    <li class="page-item"><a class="page-link" href="?per_page=<?= $item_per_page ?>&page=<?= $num ?>"><?= $num ?></a></li>
+
+
+                 <?php   }
                 } else { ?>
                     <li class="page-item"><strong class="page-link"><?= $num ?></strong></li>
             <?php 
                 }
             }
             ?>
-<!-- 
-            <li class="page-item"><a class="page-link" href="?per_page=4&page=2">2</a></li>
-            <li class="page-item"><a class="page-link" href="?per_page=4&page=3">3</a></li> -->
+
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>

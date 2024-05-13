@@ -58,7 +58,7 @@ session_start();
                         <h5 class="card-title">Thông tin công ty</h5>
                         <p class="card-text">Tên công ty: ' . $tencongty . '</p>
                         <p class="card-text">Địa chỉ: ' . $diachicongty . '</p>
-                        <p class="card-text">Ngành nghề: ' . $nganhnghe . '</p>
+                        <p class="card-text">Kinh nghiệm: ' . $kinhnghiem . '</p>
                     </div>
                 </div>
             </div>

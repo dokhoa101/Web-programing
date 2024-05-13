@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 04:19 PM
+-- Generation Time: May 13, 2024 at 08:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,7 +44,12 @@ INSERT INTO `baigiang` (`IDBaiGiang`, `TenBaiGiang`, `MaMonHoc`, `Noidung`, `Tai
 (10, 'chương 123', '01001', 'abcdefg', 'upload/20240507105701lab6.py\n', '2024-05-07 10:57:01'),
 (11, 'hjagkljhdfa', '01001', 'Đoạn 1.10.33 trong \"De Finibus Bonorum et Malorum\" viết bởi Cicero năm 45 trước Công Nguyên\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum qui', 'upload/20240505111128lab4.py\nupload/20240505111128lab5.py\nupload/20240505111128lab6.py\n', '2024-05-05 11:11:28'),
 (14, 'jhgjk,hsa', '01002', '12345', 'upload/20240506115042lab4.py\nupload/20240506115042lab5.py\nupload/20240506115042lab6.py\n', '2024-05-08 06:49:33'),
-(17, 'abc', '01002', 'syudakjhd', 'upload/20240508064735lab4.py\nupload/20240508064735lab5.py\nupload/20240508064735lab6.py\n', '2024-05-08 06:47:35');
+(17, 'abc', '01002', 'syudakjhd', 'upload/20240508064735lab4.py\nupload/20240508064735lab5.py\nupload/20240508064735lab6.py\n', '2024-05-08 06:47:35'),
+(24, 'chuong 2', '01001', 'safS', 'upload/20240511105225lab5.py\nupload/20240511105225lab6.py\n', '2024-05-11 10:52:25'),
+(40, 'chuong 2', '01001', 'bai 1', 'upload/20240512074000lab4.py\nupload/20240512074000lab5.py\n', '2024-05-12 07:40:24'),
+(41, 'jhhbjkldf', '01001', 'fsdhjhjfad', '', '2024-05-12 11:31:14'),
+(42, 'fgdssdf', '01003', 'hgdfgag', 'upload/20240512011045lab5.py\nupload/20240512011045lab6.py\n', '2024-05-12 01:10:45'),
+(43, 'fsgff', '01001', 'hsfdsgf', '', '2024-05-13 12:16:00');
 
 -- --------------------------------------------------------
 
@@ -180,7 +185,7 @@ INSERT INTO `sinhvien` (`MaSV`, `infor`) VALUES
 --
 
 CREATE TABLE `thongbaosv` (
-  `MaTB` varchar(3) NOT NULL,
+  `MaTB` int(11) NOT NULL,
   `titleTB` text NOT NULL,
   `NoiDung` text NOT NULL,
   `time` date NOT NULL
@@ -191,9 +196,9 @@ CREATE TABLE `thongbaosv` (
 --
 
 INSERT INTO `thongbaosv` (`MaTB`, `titleTB`, `NoiDung`, `time`) VALUES
-('1', 'Tôi đã khô còn bạn?', 'Red Star News đưa tin ngày 3/5, đại diện của Cục quản lý khẩn cấp quận Tập Mỹ (Hạ Môn) xác nhận có xảy ra vụ tai nạn thương tâm trên địa bàn. Ba nạn nhân sau đó được đưa đến bệnh viện cấp cứu. Đáng tiếc, một trong số họ được xác định tử vong sau khi quá trình hồi sức không thành công. Hai người khác đã qua cơn nguy kịch nhưng bị gãy đốt sống lưng.\r\n\r\nĐại diện Cục Văn hóa và Du lịch quận Tập Mỹ cho biết nhà chức trách đang điều tra vụ việc, phải chờ báo cáo cuối cùng mới rõ tình hình cụ thể.\r\n\r\nPhía Công ty Biểu diễn Nghệ thuật Hạ Môn Linh Linh cũng thông báo các tình huống liên quan đến vụ tai nạn đang được xử lý, đồng thời cam kết bồi thường và an ủi hợp lý cho các gia đình liên quan.\r\n\r\n163 dẫn lời một số người quen thuộc với vụ việc cho biết 3 nạn nhân bị rơi là Mỹ Lôi, Huệ Huệ và Tâm Ngữ. Trong đó, người xấu số là Tâm Ngữ, mới chỉ hơn 10 tuổi. Mỹ Lôi và Huệ Huệ đã qua tuổi vị thành niên.\r\n\r\nKhông lâu sau vụ tai nạn, mẹ của Tâm Ngữ đăng lên tài khoản cá nhân dòng trạng thái: \"Đứa con tội nghiệp của tôi, mẹ sẽ đau khổ suốt đời\".', '2024-05-10'),
-('2', 'Cái gì? Đức Hiền hả???????\r\nHmmmmmmmmmmmmmmmmmmmmmmmmmmmm', '“Khi biết nổ tại Công ty Bình Minh làm chết nhiều người. Tôi vội lấy điện thoại ra gọi cho chồng thì điện thoại thuê bao, không liên lạc được. Lúc này, tôi nghi ngờ chồng bị nạn rồi, vì trước đây khi có vụ gì là chồng hay gọi điện về báo cho hay, nhưng hôm đó anh ấy không gọi về...”, chị Đào kể trong đau đớn.\r\n\r\nCũng theo lời chị Đào, một lúc sau, chị chạy xe máy qua Công ty Bình Minh để xem thì thấy hiện trường tan hoang, nhiều người chết và bị thương. Khi đến nhận dạng, chị cũng không nhận ra thi thể chồng mình, vì không còn nguyên vẹn.\r\n\r\n“Hồi anh C. còn sống, hai vợ chồng động viên nhau cố gắng làm kiếm tiền về quê xây dựng một căn nhà kiên cố để ở, rồi kiếm việc làm thêm ở quê trang trải cuộc sống. Nếu được nghỉ lễ về quê thì anh ấy không phải chết đột ngột như vậy”, kể đến đây khóe mắt chị Đào ngấn lệ và không nói thêm được nữa.\r\n\r\nNgồi tiếp chuyện với chúng tôi, ông Trần Văn Miên (66 tuổi, cha ruột anh C.) buồn bã nói thêm: “Theo lẽ, mấy ngày nghỉ lễ này, hai vợ chồng nó về nhà chơi, nhưng cố gắng ở lại làm một ngày được tính bằng hai ngày công thường. Nào ngờ chuyện lại xảy ra như vậy…”.', '2024-05-07'),
-('3', 'Bình thường thôiiiiiiiiiiiiiiiiiiiii', 'ất cả nguyện vọng của thí sinh bắt buộc phải đăng ký xét tuyển trên Cổng thông tin tuyển sinh chung của Bộ GD&ĐT hoặc tại Cổng dịch vụ công quốc gia (nội dung và thời gian thực hiện theo quy định). Thí sinh không đăng ký nguyện vọng vào những ngành, chương trình đào tạo không đủ điều kiện để xét tuyển.\r\n\r\nThứ hai, thí sinh cần khai báo, cung cấp đầy đủ, chính xác tất cả thông tin đăng ký dự tuyển vào các cơ sở đào tạo.\r\n\r\nNội dung tiếp theo khai báo chính xác, trung thực và chịu trách nhiệm thông tin (các mốc thời gian theo hướng dẫn) để hưởng khu vực ưu tiên, đối tượng ưu tiên (nếu có) tại thời điểm đăng ký dự thi kỳ thi tốt nghiệp THPT năm 2024 (gửi kèm minh chứng đối tượng ưu tiên nếu có). Thông tin nơi thường trú ở các giai đoạn do thí sinh khai báo sẽ được các cơ quan chức năng kiểm tra và xác thực trên cơ sở dữ liệu về dân cư.\r\n\r\nThứ tư, thí sinh đủ điều kiện đăng ký xét tuyển theo phương thức xét tuyển thẳng, ưu tiên xét tuyển theo quy định của Quy chế tuyển sinh của Bộ GD&ĐT, lưu ý trước 17h ngày 30/6 cần nộp hồ sơ xét tuyển thẳng và ưu tiên xét tuyển không giới hạn số nguyện vọng về các cơ sở đào tạo theo hướ', '2024-05-10');
+(2, 'Tôi đã khô còn bạn?', 'Red Star News đưa tin ngày 3/5, đại diện của Cục quản lý khẩn cấp quận Tập Mỹ (Hạ Môn) xác nhận có xảy ra vụ tai nạn thương tâm trên địa bàn. Ba nạn nhân sau đó được đưa đến bệnh viện cấp cứu. Đáng tiếc, một trong số họ được xác định tử vong sau khi quá trình hồi sức không thành công. Hai người khác đã qua cơn nguy kịch nhưng bị gãy đốt sống lưng.\r\n\r\nĐại diện Cục Văn hóa và Du lịch quận Tập Mỹ cho biết nhà chức trách đang điều tra vụ việc, phải chờ báo cáo cuối cùng mới rõ tình hình cụ thể.\r\n\r\nPhía Công ty Biểu diễn Nghệ thuật Hạ Môn Linh Linh cũng thông báo các tình huống liên quan đến vụ tai nạn đang được xử lý, đồng thời cam kết bồi thường và an ủi hợp lý cho các gia đình liên quan.\r\n\r\n163 dẫn lời một số người quen thuộc với vụ việc cho biết 3 nạn nhân bị rơi là Mỹ Lôi, Huệ Huệ và Tâm Ngữ. Trong đó, người xấu số là Tâm Ngữ, mới chỉ hơn 10 tuổi. Mỹ Lôi và Huệ Huệ đã qua tuổi vị thành niên.\r\n\r\nKhông lâu sau vụ tai nạn, mẹ của Tâm Ngữ đăng lên tài khoản cá nhân dòng trạng thái: \"Đứa con tội nghiệp của tôi, mẹ sẽ đau khổ suốt đời\".', '2024-05-10'),
+(3, 'Cái gì? Đức Hiền hả???????\r\nHmmmmmmmmmmmmmmmmmmmmmmmmmmmm', '“Khi biết nổ tại Công ty Bình Minh làm chết nhiều người. Tôi vội lấy điện thoại ra gọi cho chồng thì điện thoại thuê bao, không liên lạc được. Lúc này, tôi nghi ngờ chồng bị nạn rồi, vì trước đây khi có vụ gì là chồng hay gọi điện về báo cho hay, nhưng hôm đó anh ấy không gọi về...”, chị Đào kể trong đau đớn.\r\n\r\nCũng theo lời chị Đào, một lúc sau, chị chạy xe máy qua Công ty Bình Minh để xem thì thấy hiện trường tan hoang, nhiều người chết và bị thương. Khi đến nhận dạng, chị cũng không nhận ra thi thể chồng mình, vì không còn nguyên vẹn.\r\n\r\n“Hồi anh C. còn sống, hai vợ chồng động viên nhau cố gắng làm kiếm tiền về quê xây dựng một căn nhà kiên cố để ở, rồi kiếm việc làm thêm ở quê trang trải cuộc sống. Nếu được nghỉ lễ về quê thì anh ấy không phải chết đột ngột như vậy”, kể đến đây khóe mắt chị Đào ngấn lệ và không nói thêm được nữa.\r\n\r\nNgồi tiếp chuyện với chúng tôi, ông Trần Văn Miên (66 tuổi, cha ruột anh C.) buồn bã nói thêm: “Theo lẽ, mấy ngày nghỉ lễ này, hai vợ chồng nó về nhà chơi, nhưng cố gắng ở lại làm một ngày được tính bằng hai ngày công thường. Nào ngờ chuyện lại xảy ra như vậy…”.', '2024-05-07'),
+(4, 'Bình thường thôiiiiiiiiiiiiiiiiiiiii', 'ất cả nguyện vọng của thí sinh bắt buộc phải đăng ký xét tuyển trên Cổng thông tin tuyển sinh chung của Bộ GD&ĐT hoặc tại Cổng dịch vụ công quốc gia (nội dung và thời gian thực hiện theo quy định). Thí sinh không đăng ký nguyện vọng vào những ngành, chương trình đào tạo không đủ điều kiện để xét tuyển.\r\n\r\nThứ hai, thí sinh cần khai báo, cung cấp đầy đủ, chính xác tất cả thông tin đăng ký dự tuyển vào các cơ sở đào tạo.\r\n\r\nNội dung tiếp theo khai báo chính xác, trung thực và chịu trách nhiệm thông tin (các mốc thời gian theo hướng dẫn) để hưởng khu vực ưu tiên, đối tượng ưu tiên (nếu có) tại thời điểm đăng ký dự thi kỳ thi tốt nghiệp THPT năm 2024 (gửi kèm minh chứng đối tượng ưu tiên nếu có). Thông tin nơi thường trú ở các giai đoạn do thí sinh khai báo sẽ được các cơ quan chức năng kiểm tra và xác thực trên cơ sở dữ liệu về dân cư.\r\n\r\nThứ tư, thí sinh đủ điều kiện đăng ký xét tuyển theo phương thức xét tuyển thẳng, ưu tiên xét tuyển theo quy định của Quy chế tuyển sinh của Bộ GD&ĐT, lưu ý trước 17h ngày 30/6 cần nộp hồ sơ xét tuyển thẳng và ưu tiên xét tuyển không giới hạn số nguyện vọng về các cơ sở đào tạo theo hướ', '2024-05-10');
 
 -- --------------------------------------------------------
 
@@ -209,16 +214,18 @@ CREATE TABLE `thongtinvieclam` (
   `time` date NOT NULL,
   `tencongty` varchar(255) NOT NULL,
   `gioithieucongty` text NOT NULL,
-  `anhcongty` text NOT NULL
+  `anhcongty` text NOT NULL,
+  `diachicongty` text NOT NULL,
+  `kinhnghiem` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `thongtinvieclam`
 --
 
-INSERT INTO `thongtinvieclam` (`maso`, `vitri`, `luong`, `yeucau`, `time`, `tencongty`, `gioithieucongty`, `anhcongty`) VALUES
-(1, 'Senior Fullstack Developer (Magento, Korean speaking)', 1000, 'Yêu cầu công việc\r\n+6 years of experience with Magento 2 Opensource or Commerce and having experience in Java are required\r\nBackend Development: Magento2, MAMP, LAMP, Elasticsearch, Redis\r\nSource control: Git, Gitlab\r\nFrontend Development: JavaScript, CSS3, Less, KnockoutJS\r\nInfrastructure: Magento Cloud\r\nUnderstanding design patterns, coding standards, solid\r\nHaving Magento 2 certificate is a plus.\r\nHaving clear code style, methodical, fully annotated\r\nGood English skills and Korean skills as well\r\nUnderstanding optimizing query speed, optimizing database is an advantage \r\nHumble, open-minded, eager to learn and share knowledge \r\nHas a professional working style, and good teamwork and communication ability', '2024-05-02', 'CJ OLIVENETWORKS VINA CO., LTD', 'Mô tả công việc\r\nAbout Us:\r\n\r\nCJ OliveNetworks Vina is a dynamic and innovative IT company, dedicated to fostering talent and providing exciting growth opportunities. We are committed to innovation and excellence in everything we do, and we are looking for talented individuals to join our team and help us continue to grow. We are seeking a highly skilled and motivated Senior Fullstack Developer to join our growing team.\r\n\r\n \r\n\r\nJob Description\r\n\r\nOperate a cosmetics online mall, e-commerce systems in Taiwan, Vietnam, Korea, Singapore, and Vietnam, and develop E-commerce platforms with Magento 2 Commerce Cloud\r\nE-commerce experience and business understanding are required\r\nContribute to the overall component design and play a key role in implementing features\r\nDesign, develop and test specific component features and functions, prepare functional specifications, and build prototypes\r\nWork on multiple highly complex major tasks requiring innovative solutions including security, scalability, and performance requirements\r\nImplement E-commerce features like site search, product recommendation, payment, shipping, promotions, loyalty, return & exchange, and more\r\nResearch, install Magento extensions, and customize to meet client requirements \r\nIntegrate with 3rd-party applications e.g. SAP, CRM, POS via APIs \r\nEnsure proper test coverage exists based on requirement and design specification\r\nWrite test cases for the existing and the created code to ensure compatibility and stability', 'https://static.ybox.vn/2021/8/5/1628240503557-Thi%E1%BA%BFt%20k%E1%BA%BF%20kh%C3%B4ng%20t%C3%AAn%20(14).png'),
-(2, 'Tester (QA QC)', 1500, 'Yêu cầu công việc\r\nTốt nghiệp Đại học chuyên ngành CNTT, Toán tin, Viễn thông, Tài chính ngân hàng... hoặc trái ngành nhưng đã có kinh nghiệm, đã học các khóa học về kiểm thử; \r\nKinh nghiệm từ 01 năm trở lên; \r\nHiểu biết về quy trình phát triển phần mềm và các giai đoạn kiểm thử; \r\nCó khả năng/kinh nghiệm lập các Test Plan và thiết kế các Test Case, Test Data; \r\nCó tư duy logic cao, kỹ năng phân tích và giải quyết vấn đề tốt;\r\nThành thạo tin học văn phòng; \r\nTiếng Anh đọc hiểu tài liệu là một lợi thế.', '2024-05-03', 'BIM Group', 'Mô tả công việc\r\nTham gia phân tích làm rõ yêu cầu; \r\nLên kế hoạch (test plan) và viết kịch bản test (test case); \r\nQuản lý, phân tích và theo dõi kết quả kiểm tra, báo cáo test; \r\nTest sản phẩm, viết/kiểm tra tài liệu hướng dẫn cài đặt và hướng dẫn sử dụng; \r\nNghiên cứu, ứng dụng các công cụ test phục vụ cho việc kiểm thử;\r\nHỗ trợ các bộ phận phân tích nghiệp vụ, triển khai và đào tạo người sử dụng; \r\nThực hiện các công việc khác theo sự phân công của Quản lý trực tiếp.', 'https://th.bing.com/th/id/OIP.ESGM4tkdC4iPjjZVAMqMpAAAAA?rs=1&pid=ImgDetMain');
+INSERT INTO `thongtinvieclam` (`maso`, `vitri`, `luong`, `yeucau`, `time`, `tencongty`, `gioithieucongty`, `anhcongty`, `diachicongty`, `kinhnghiem`) VALUES
+(1, 'Senior Fullstack Developer (Magento, Korean speaking)', 3000, 'Yêu cầu công việc\r\n+6 years of experience with Magento 2 Opensource or Commerce and having experience in Java are required\r\nBackend Development: Magento2, MAMP, LAMP, Elasticsearch, Redis\r\nSource control: Git, Gitlab\r\nFrontend Development: JavaScript, CSS3, Less, KnockoutJS\r\nInfrastructure: Magento Cloud\r\nUnderstanding design patterns, coding standards, solid\r\nHaving Magento 2 certificate is a plus.\r\nHaving clear code style, methodical, fully annotated\r\nGood English skills and Korean skills as well\r\nUnderstanding optimizing query speed, optimizing database is an advantage \r\nHumble, open-minded, eager to learn and share knowledge \r\nHas a professional working style, and good teamwork and communication ability', '2024-05-02', 'CJ OLIVENETWORKS VINA CO., LTD', 'Mô tả công việc\r\nAbout Us:\r\n\r\nCJ OliveNetworks Vina is a dynamic and innovative IT company, dedicated to fostering talent and providing exciting growth opportunities. We are committed to innovation and excellence in everything we do, and we are looking for talented individuals to join our team and help us continue to grow. We are seeking a highly skilled and motivated Senior Fullstack Developer to join our growing team.\r\n\r\n \r\n\r\nJob Description\r\n\r\nOperate a cosmetics online mall, e-commerce systems in Taiwan, Vietnam, Korea, Singapore, and Vietnam, and develop E-commerce platforms with Magento 2 Commerce Cloud\r\nE-commerce experience and business understanding are required\r\nContribute to the overall component design and play a key role in implementing features\r\nDesign, develop and test specific component features and functions, prepare functional specifications, and build prototypes\r\nWork on multiple highly complex major tasks requiring innovative solutions including security, scalability, and performance requirements\r\nImplement E-commerce features like site search, product recommendation, payment, shipping, promotions, loyalty, return & exchange, and more\r\nResearch, install Magento extensions, and customize to meet client requirements \r\nIntegrate with 3rd-party applications e.g. SAP, CRM, POS via APIs \r\nEnsure proper test coverage exists based on requirement and design specification\r\nWrite test cases for the existing and the created code to ensure compatibility and stability', 'https://static.ybox.vn/2021/8/5/1628240503557-Thi%E1%BA%BFt%20k%E1%BA%BF%20kh%C3%B4ng%20t%C3%AAn%20(14).png', 'TPHCM', '4 - 6+ năm'),
+(2, 'Tester (QA QC)', 1000, 'Yêu cầu công việc\\r\\nTốt nghiệp Đại học chuyên ngành CNTT, Toán tin, Viễn thông, Tài chính ngân hàng... hoặc trái ngành nhưng đã có kinh nghiệm, đã học các khóa học về kiểm thử; \\r\\nKinh nghiệm từ 01 năm trở lên; \\r\\nHiểu biết về quy trình phát triển phần mềm và các giai đoạn kiểm thử; \\r\\nCó khả năng/kinh nghiệm lập các Test Plan và thiết kế các Test Case, Test Data; \\r\\nCó tư duy logic cao, kỹ năng phân tích và giải quyết vấn đề tốt;\\r\\nThành thạo tin học văn phòng; \\r\\nTiếng Anh đọc hiểu tài liệu là một lợi thế.', '2024-05-03', 'BIM Group', 'Mô tả công việc\\r\\nTham gia phân tích làm rõ yêu cầu; \\r\\nLên kế hoạch (test plan) và viết kịch bản test (test case); \\r\\nQuản lý, phân tích và theo dõi kết quả kiểm tra, báo cáo test; \\r\\nTest sản phẩm, viết/kiểm tra tài liệu hướng dẫn cài đặt và hướng dẫn sử dụng; \\r\\nNghiên cứu, ứng dụng các công cụ test phục vụ cho việc kiểm thử;\\r\\nHỗ trợ các bộ phận phân tích nghiệp vụ, triển khai và đào tạo người sử dụng; \\r\\nThực hiện các công việc khác theo sự phân công của Quản lý trực tiếp.', 'https://th.bing.com/th/id/OIP.ESGM4tkdC4iPjjZVAMqMpAAAAA?rs=1&pid=ImgDetMain', 'TPHCM', 'không yêu cầu kinh nghiệm');
 
 -- --------------------------------------------------------
 
@@ -319,19 +326,25 @@ ALTER TABLE `tinkhoacntt`
 -- AUTO_INCREMENT for table `baigiang`
 --
 ALTER TABLE `baigiang`
-  MODIFY `IDBaiGiang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `IDBaiGiang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT for table `thongbaosv`
+--
+ALTER TABLE `thongbaosv`
+  MODIFY `MaTB` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `thongtinvieclam`
 --
 ALTER TABLE `thongtinvieclam`
-  MODIFY `maso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `maso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tinkhoacntt`
 --
 ALTER TABLE `tinkhoacntt`
-  MODIFY `MaTin` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MaTin` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

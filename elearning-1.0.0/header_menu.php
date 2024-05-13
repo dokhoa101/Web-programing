@@ -11,41 +11,29 @@
             <a href="index.php" class="nav-item nav-link active">Home</a>
             <a href="about.php" class="nav-item nav-link">About</a>
             <a href="resources.php" class="nav-item nav-link">Resources</a>
-
+            <a href="contact.php" class="nav-item nav-link">Contact</a>
             <?php
             if (isset($_SESSION['email'])) {
-                ?>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.php" class="dropdown-item">Our Team</a>
-                        <a href="add_lecture.php" class="dropdown-item">Add Lectures</a>
-                        <a href="404.php" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <?php
+            ?>
+                <a href="admin.php" class="nav-item nav-link">Admin</a>
+
+
+            <?php
             }
             ?>
 
-
-            <a href="contact.php" class="nav-item nav-link">Contact</a>
-
-
             <?php
             if (isset($_SESSION['email'])) {
-                ?>
+            ?>
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a href="logout_script.php" class="nav-link"><i
-                                class="fa fa-sign-out"></i>Logout</a></li>
-                    <li class="nav-item"><a class="nav-link " data-placement="bottom" data-toggle="popover"
-                            data-trigger="hover" data-content="<?php echo $_SESSION['email'] ?>"><i
-                                class="fa fa-user-circle "></i></a></li>
+                    <li class="nav-item"><a href="logout_script.php" class="nav-link"><i class="fa fa-sign-out"></i>Logout</a></li>
+                    <li class="nav-item"><a class="nav-link " data-placement="bottom" data-toggle="popover" data-trigger="hover" data-content="<?php echo $_SESSION['email'] ?>"><i class="fa fa-user-circle "></i></a></li>
                 </ul>
-                <?php
+            <?php
             } else {
-                ?>
+            ?>
                 <a href="login.html" class="nav-item nav-link">Login</a>
-                <?php
+            <?php
             }
             ?>
 

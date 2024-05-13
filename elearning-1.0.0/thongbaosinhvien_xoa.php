@@ -28,9 +28,9 @@
             // use exec() because no results are returned
             $conn->exec($sql);
             echo "Xóa thành công!!!!!";
-            echo "<a href = 'thongbaosinhvien_Themsuaxoa.php'>trở vể Danh sách</a>";
+            header('Location: thongbaosinhvien_Themsuaxoa.php');
         } catch (PDOException $e) {
-            echo $sql . "<br>" . $e->getMessage();
+            echo "Error: " . $e->getMessage();
         }
 
         $conn = null;

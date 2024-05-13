@@ -14,7 +14,7 @@
 
         $servername = "localhost";
         $username = "root";
-        $password = "123";
+        $password = "";
         $dbname = "giuaky";
 
         try {
@@ -27,10 +27,11 @@
 
             // use exec() because no results are returned
             $conn->exec($sql);
-            echo "Xóa thành công!!!!!";
-            echo "<a href = 'tintuc_themSuaXoa.php'>trở vể Danh sách</a>";
+            header("Location: tintuc_themSuaXoa.php");
+            // echo "Xóa thành công!!!!!";
+            // echo "<a href = 'test.php'>trở vể Danh sách</a>";
         } catch (PDOException $e) {
-            echo $sql . "<br>" . $e->getMessage();
+            echo "Error: " . $e->getMessage();
         }
 
         $conn = null;

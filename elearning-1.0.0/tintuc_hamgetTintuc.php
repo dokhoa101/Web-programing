@@ -17,7 +17,7 @@ function chitietTintuc()
         //laydulieu theo id
 
         $conn = tintuc_ketnoi();
-        $sql = "SELECT * from tinkhoacntt where Matin=" . $id;
+        $sql = "SELECT * from tinkhoacntt where MaTin='" . $id . "'";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -51,7 +51,6 @@ function chitietvieclam()
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $tintuc = $stmt->fetch();
         // use exec() because no results are returned
-
         $conn = null;
         return $tintuc;
     }
@@ -59,11 +58,30 @@ function chitietvieclam()
 function getthongbao()
 {
     $conn = tintuc_ketnoi();
-    $sql = "SELECT * from thongbaosv ORDER BY maTB DESC";
+    $sql = "SELECT * FROM thongbaosv ORDER BY maTB DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $allvieclam = $stmt->fetchAll();
+    $result = $stmt->fetchAll();
     $conn = null;
-    return $allvieclam;
+    return $result;
 }
+
+function chitietthongbao()
+{
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        //laydulieu theo id
+
+        $conn = tintuc_ketnoi();
+        $sql = "SELECT * from thongbaosv where maTB=" . $id;
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $tintuc = $stmt->fetch();
+        // use exec() because no results are returned
+        $conn = null;
+        return $tintuc;
+    }
+}
+

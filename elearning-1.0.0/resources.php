@@ -1,6 +1,8 @@
 <?php
-session_start();
 require_once("config/db.class.php");
+include_once './tintuc_ketnoi.php';
+include_once './tintuc_hamgetTintuc.php';
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -41,11 +43,11 @@ require_once("config/db.class.php");
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div>
+    </div> -->
     <!-- Spinner End -->
 
     <?php
@@ -56,15 +58,14 @@ require_once("config/db.class.php");
 
 
     <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 ">
+    <div class="container-fluid bg-primary py-5 mb-5 " style="background-image: url('../elearning-1.0.0/img/it-1.jpg')">
         <div class="container py-5">
             <div class="row justify-content-center ">
                 <div class="col-lg-10 text-center ">
                     <h1 class="display-3 text-white animated slideInDown">Resources</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center ">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="index.php">Home</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Resources</li>
                         </ol>
                     </nav>
@@ -74,38 +75,118 @@ require_once("config/db.class.php");
     </div>
     <!-- Header End -->
 
-    <!-- Search bar -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="search-container">
-                    <form class="form-inline  input-group" method="get">
-                        <input class="form-control mr-sm-2 " name="search_content" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Search bar end -->
 
 
 
     <!-- Categories Start -->
-    <div class="container-xxl py-5 category">
-        <div class="container">
+    <div class="container-fluid pb-2 pt-0">
+        <div class="container-fluid">
             <div class="row">
-
+                <!-- Leftside -->
                 <div class="col-md-3 col-sd-2" id="sub_menu">
-                    <!-- <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a href="add_lecture.php">Courses</a></li>
-                        <li><a href="contact.php">Contact</a></li>
-                    </ul> -->
+                    <div class="row">
+                        <div class="mb-3 text-right font-weight-bold">
+                            <h5 class="display-6">
+                            <i class="fa-regular fa-newspaper"></i>
+                                Thông Báo </h5>
+                        </div>
+
+                        <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <?php
+                                $newtintuc = getthongbao();
+                                $count = count($newtintuc);
+                                foreach ($newtintuc as $index => $item) {
+                                    extract($item);
+                                    $activeClass = ($index === 0) ? 'active' : ''; // Đánh dấu mục đầu tiên là active
+                                    echo '
+                                <div class="carousel-item ' . $activeClass . '">
+                                    <div class="card border-0" style="height:200px">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><a href="thongbao_chitiet.php?id=' . $MaTB . '">' . $titleTB . '</a></h5>
+                                            <p class="card-text text-truncate">' . $NoiDung . '</p> <!-- Giảm kích thước -->
+                                            <p class="card-text"><small class="text-muted">' . $time . '</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                                }
+                                ?>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mt-2">
+                        <div class="mb-3 text-right font-weight-bold">
+                            <h5 class="display-6">
+                            <i class="fa-solid fa-users"></i>
+                                Tuyển dụng</h5>
+                        </div>
+
+                        <div id="carouselAutoplaying2" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <?php
+                                $newtintuc = getvieclam();
+                                $count = count($newtintuc);
+                                foreach ($newtintuc as $index => $item) {
+                                    extract($item);
+                                    $activeClass = ($index === 0) ? 'active' : ''; // Đánh dấu mục đầu tiên là active
+                                    echo '
+                                <div class="carousel-item ' . $activeClass . '">
+                                <div class="card border-0 mb-3 "style="height:200px">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="' . $anhcongty . '" class="img-fluid" alt="Logo công ty">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><a href="vieclam_chitiet.php?id=' . $maso . '">' . $vitri . '</a></h5>
+                                            <p class="card-text">' . $tencongty . '</p>
+                                            <p class="card-text">Mức lương: ' . $luong . '</p>
+                                            <p class="card-text"><small class="text-muted">' . $time . '</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            ';
+                                }
+                                ?>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying2" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying2" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+
+
                 </div>
-                <div class="col-md-9 col-sd-10 justify-content-center">
+                <!--End Leftside -->
+
+                <div class="col-md-6 col-sd-6 justify-content-center">
+                    <div class="col-md-9 py-2 mx-auto">
+                        <div class="search-container">
+                            <form class="form-inline  input-group" method="get">
+                                <input class="form-control mr-sm-2 " name="search_content" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn  btn-outline-primary my-2 my-sm-0" name="search" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
 
 
                     <?php
@@ -134,11 +215,11 @@ require_once("config/db.class.php");
                     foreach ($docs as $doc) {
                         $IDMonHoc = $doc['IDMonHoc'];
                         echo "<section class ='my-2'>
-                        <div class='row'>
-                        <div class='card col-md-9 col-sm-9' '>
+                        <div class='row '>
+                        <div class='card col-md-9 col-sm-9 mx-auto' >
                         <div class='card-body'>
                         <h5 class='card-title'><i class='fa-solid fa-book'></i>
-                        <a href='resources_detail.php?IDMonHoc=$IDMonHoc'  >
+                        <a class='no-underline' href='resources_detail.php?IDMonHoc=$IDMonHoc'  >
                         {$doc['TenMonHoc']}</a></h5>
                         <p>Ma mon hoc: {$IDMonHoc}</p>
                         </div>
@@ -159,6 +240,46 @@ require_once("config/db.class.php");
 
                 </div>
 
+                <div class="col-md-3 col-sd-3" id="sub_menu1">
+                    <div class="mb-3 text-right font-weight-bold">
+                        <h5 class="display-6">
+                        <i class="fa-regular fa-calendar-days"></i>
+                            Tin tức</h5>
+                    </div>
+                    <div id="carouselAutoplaying1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <?php
+                            $newtintuc = getnew();
+                            $count = count($newtintuc);
+                            foreach ($newtintuc as $index => $item) {
+                                extract($item);
+                                $activeClass = ($index === 0) ? 'active' : ''; // Đánh dấu mục đầu tiên là active
+                                echo '
+                                <div class="carousel-item ' . $activeClass . '">
+                                    <div class="card border-0 shadow-sm">
+                                        <img src="' . $linkAnh . '" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><a href="tintuc_chitiet.php?id=' . $MaTin . '">' . $title . '</a></h5>
+                                            <p class="card-text"><small class="text-muted">' . $time . '</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                            }
+                            ?>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying1" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying1" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+
+                </div>
 
             </div>
 

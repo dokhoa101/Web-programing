@@ -1,20 +1,21 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
+  <head> 
+    @include('admin.css')
+  </head>
+  <body>
+    @include('admin.header')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-
-    <h1>admin</h1>
-    <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <input type="submit" value="Logout">
-                        </form>
-</body>
-
+    @include('admin.sidebar')
+      <!-- Sidebar Navigation end-->
+      <div class="page-content">
+        <div class="page-header">
+          <div class="container-fluid">
+            @include('admin.body')
+          </div>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    @include('admin.footer')
+  </body>
 </html>
